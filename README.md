@@ -59,4 +59,4 @@ These are defined in the .module file.
 
 #### Add the Current collection block for users
 
-In Structure - Block layour, add block Current collection to Highlighted region.
+In Structure - Block layout, add block Current collection to Highlighted region.
