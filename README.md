@@ -28,7 +28,7 @@ Add collections in format "id: label", e.g.
 
 **Run all the neccessary set-up functions:**
 
-These are defined in the .module file. The `digitalia_muni_collections_set_allowed_values()` function must be executed after the configuration has been created, so it is not called during module installation.
+These are defined in the .module file.
 
 
 
