@@ -2,7 +2,7 @@
 
 This module uses a session variable "collection" to help users navigate between different collections stored in the same repository.
 
-When the variable is set, all browse and search pages are filtered to display only nodes belonging to the selected collection. A Current collection block is displayed above the main content to inform users of the active filter, with the message: “You are working in collection [collection ID]”.
+When the variable is set, all browse and search pages are filtered to display only nodes belonging to the selected collection. A Current collection block is displayed above the main content to inform users of the active filter, with the message: “You are working in collection [collection name]”.
 
 The variable is set whenever a user visits a collection homepage and is cleared when they return to the repository homepage. If the user visits another collection homepage, the variable is updated to the new collection.
 
