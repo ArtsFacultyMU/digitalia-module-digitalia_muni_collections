@@ -37,7 +37,7 @@ These are defined in the .module file.
 `drush eval 'digitalia_muni_collections_create_field()'`
 
 
-2. Set allowed values for this field to collections in the configuration:
+2. Set allowed values for this field to collections defined in the config file:
 
 `drush eval 'digitalia_muni_collections_set_allowed_values()'`
 
