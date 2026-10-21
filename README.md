@@ -43,7 +43,8 @@ These are defined in the .module file. The `digitalia_muni_collections_set_allow
 
 
 
-**Note**: there is also function `digitalia_muni_collections_populate_field($collection_id)`, that populates **all nodes of all the relevant content types** with the specified collection. This rewrites any data that are in the field_dm_collection, so use it only in case there's currently just one collection.
+
+**Note**: there is also function `digitalia_muni_collections_populate_field($collection_id)`, that populates the field_dm_collection field with the specified collection ID for **all nodes** of all relevant content types. It overwrites any existing values in this field, so use it only when the repository contains a single collection.
 
 
 **Add the Current collection block for users**
