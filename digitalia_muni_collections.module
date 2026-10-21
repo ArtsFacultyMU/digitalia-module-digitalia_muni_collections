@@ -70,8 +70,8 @@ function digitalia_muni_collections_set_allowed_values() {
     }
 }
 
-function digitalia_muni_collections_populate_field() {
-    $value = 'privateletters';
+function digitalia_muni_collections_populate_field($collection_id) {
+
     $bundles = digitalia_muni_collections_get_bundles();
     
     $nids = \Drupal::entityQuery('node')
@@ -82,7 +82,7 @@ function digitalia_muni_collections_populate_field() {
     $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
 
     foreach ($nodes as $node) {
-        $node->set('field_dm_collection', $value);
+        $node->set('field_dm_collection', $collection_id);
         $node->save();
         echo 'Updated ' . $node->getType() . ' ID: ' . $node->id() ."\n";
     }
