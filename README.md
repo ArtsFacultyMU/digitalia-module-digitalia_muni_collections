@@ -59,4 +59,4 @@ These are defined in the .module file.
 
 #### Add the Current collection block for users
 
-In Structure - Block layout, add block Current collection to Highlighted region.
+In Structure → Block layout, place the Current collection block in the Highlighted region. There is no need to configure block visibility, as this is handled directly in the block's code.
