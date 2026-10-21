@@ -29,7 +29,7 @@ For the session variable to work correctly, the following conventions must be fo
 
 `drush cset digitalia_muni_collections.settings collections '[]' -y`
 
-Edit the file with command `drush cedit digitalia_muni_collections.settings collections` or in admin UI.
+Edit the file with command `drush cedit digitalia_muni_collections.settings` or in admin UI.
 
 Add collections in format "id: label", e.g.
 
