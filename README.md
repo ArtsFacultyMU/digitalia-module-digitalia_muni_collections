@@ -1,5 +1,10 @@
 # Digitalia MUNI Collections
 
+This module uses a session variable "collection" to help users navigate between different collections stored in the same repository. The variable is set whenever a user visits a collection homepage and is cleared when they return to the repository homepage. If the user visits another collection homepage, the variable is updated to the new collection.
+
+When the variable is set, all browse and search pages are filtered to display only nodes belonging to the selected collection. A Current collection block is displayed above the main content to inform users of the active filter, with the message: “You are working in collection [collection ID]”.
+
+
 ## Installation and configuration
 
 **Install and enable the module:**
@@ -43,4 +48,20 @@ Note: there is also function `digitalia_muni_collections_populate_field($collect
 **Add the Current collection block for users**
 
 In Structure - Block layour, add block Current collection to Highlighted region.
+
+## Conventions
+
+For the session variable to work correctly, you need to follow these conventions:
+
+Each collection homepage is located at url `/collections/collection-id`, e.g. `/collections/privateletters`
+
+Search page is located at url `/search`. In case of multiple search pages, locate them at `/search/*`.
+
+Browse pages are located at url `/browse/*`.
+
+Browse and search pages have exposed filter or facet (you can use both) with Filter identifier set to "collection" (this setting is available in views).
+
+
+
+
 
