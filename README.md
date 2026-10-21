@@ -51,17 +51,8 @@ In Structure - Block layour, add block Current collection to Highlighted region.
 
 ## Conventions
 
-For the session variable to work correctly, you need to follow these conventions:
-
-Each collection homepage is located at url `/collections/collection-id`, e.g. `/collections/privateletters`
-
-Search page is located at url `/search`. In case of multiple search pages, locate them at `/search/*`.
-
-Browse pages are located at url `/browse/*`.
-
-Browse and search pages have exposed filter or facet (you can use both) with Filter identifier set to "collection" (this setting is available in views).
-
-
-
-
-
+For the session variable to work correctly, the following conventions must be followed:
+- **Collection homepages**: Each collection homepage must use the URL pattern `/collections/collection-id`, e.g. `/collections/privateletters`.
+- **Search pages**: The main search page must be located at `/search`. If multiple search pages are needed, use the `/search/*` URL pattern.
+- **Browse pages**: Browse pages must use the `/browse/*` URL pattern, e.g. `/browse/works`.
+- **Collection filtering**: Search and browse pages must include an exposed filter or facet for the DM Collection field. The Filter identifier setting in the views must be set to "collection".
