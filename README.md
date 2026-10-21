@@ -37,6 +37,9 @@ Set allowed values for this field to collections in the configuration:
 `drush eval 'digitalia_muni_collections_set_allowed_values()'`
 
 
+Note: there is also function `digitalia_muni_collections_populate_field($collection_id)`, that populates **all nodes of all the relevant content types** with the specified collection. Use it only in case there's currently just one collection. This rewrites any data that are in the field_dm_collection, so use it with caution.
+
+
 **Add the Current collection block for users**
 
 In Structure - Block layour, add block Current collection to Highlighted region.
