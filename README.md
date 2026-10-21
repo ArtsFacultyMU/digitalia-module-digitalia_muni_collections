@@ -7,14 +7,14 @@ When the variable is set, all browse and search pages are filtered to display on
 
 ## Installation and configuration
 
-**Install and enable the module:**
+#### Install and enable the module:
 
 `git clone-alias git@github.com:ArtsFacultyMU/digitalia-module-digitalia_muni_collections.git digitalia_muni_collections`
 
 `drush en digitalia_muni_collections`
 
 
-**Create the config file:**
+#### Create the config file:
 
 `drush cset digitalia_muni_collections.settings collections '[]' -y`
 
@@ -26,7 +26,7 @@ Add collections in format "id: label", e.g.
 &nbsp;&nbsp;privateletters: Private Letters</code>
 
 
-**Run all the neccessary set-up functions:**
+#### Run all the neccessary set-up functions:
 
 These are defined in the .module file.
 
@@ -46,7 +46,7 @@ These are defined in the .module file.
 **Note**: If needed, you can also use the `digitalia_muni_collections_populate_field($collection_id)` function, which populates the field_dm_collection field with the specified collection ID for **all nodes in the repository** (except for the Islandora default content types). It overwrites any existing values in this field, so use it with caution and only when the repository contains a single collection.
 
 
-**Add the Current collection block for users**
+#### Add the Current collection block for users
 
 In Structure - Block layour, add block Current collection to Highlighted region.
 
