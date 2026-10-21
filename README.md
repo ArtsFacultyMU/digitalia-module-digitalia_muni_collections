@@ -32,17 +32,18 @@ These are defined in the .module file. The `digitalia_muni_collections_set_allow
 
 
 
-Create the field DM Collection (field_dm_collection) on all content types except the default Islandora content types (Article, Basic Page a Islandora Object):
+**Create the field DM Collection (field_dm_collection) on all content types except the default Islandora content types (Article, Basic Page a Islandora Object):**
 
 `drush eval 'digitalia_muni_collections_create_field()'`
 
 
-Set allowed values for this field to collections in the configuration:
+**Set allowed values for this field to collections in the configuration:**
 
 `drush eval 'digitalia_muni_collections_set_allowed_values()'`
 
 
-Note: there is also function `digitalia_muni_collections_populate_field($collection_id)`, that populates **all nodes of all the relevant content types** with the specified collection. Use it only in case there's currently just one collection. This rewrites any data that are in the field_dm_collection, so use it with caution.
+
+**Note**: there is also function `digitalia_muni_collections_populate_field($collection_id)`, that populates **all nodes of all the relevant content types** with the specified collection. This rewrites any data that are in the field_dm_collection, so use it only in case there's currently just one collection.
 
 
 **Add the Current collection block for users**
