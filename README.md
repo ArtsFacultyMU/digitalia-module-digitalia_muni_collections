@@ -23,7 +23,8 @@ Add collections in format "id: label", e.g.
 
 **Run all the neccessary set-up functions:**
 
-These are located in .module file. The set_allowed_values function needs to be ran after the config is created, which is why it is not ran on installation.
+These are defined in the .module file. The `digitalia_muni_collections_set_allowed_values()` function must be executed after the configuration has been created, so it is not called during module installation.
+
 
 
 Create the field DM Collection (field_dm_collection) on all content types except the default Islandora content types (Article, Basic Page a Islandora Object):
