@@ -8,7 +8,7 @@ When the variable is set, all browse and search pages are filtered to display on
 
 For the session variable to work correctly, the following conventions must be followed:
 - **Collection homepages**: Each collection homepage must use the URL pattern `/collections/collection-id`, e.g. `/collections/privateletters`.
-- **Search pages**: The main search page must be located at `/search`. If multiple search pages are needed, use the `/search/*` URL pattern.
+- **Search pages**: Search page must be located at `/search`. If multiple search pages are needed, use the `/search/*` URL pattern.
 - **Browse pages**: Browse pages must use the `/browse/*` URL pattern, e.g. `/browse/works`.
 - **Collection filtering**: Search and browse pages must include an exposed filter or facet for the DM Collection field. The Filter identifier setting in the views must be set to "collection".
 
