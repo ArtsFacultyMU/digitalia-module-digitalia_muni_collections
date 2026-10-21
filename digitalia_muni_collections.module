@@ -1,0 +1,89 @@
+<?php
+
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\node\Entity\NodeType;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * @file
+ * Primary module hooks for digitalia_muni_collections module.
+ */
+
+function digitalia_muni_collections_get_bundles() {
+    $bundles = NodeType::loadMultiple();
+    $bundle_names = [];
+
+    $exceptions = ['article', 'page', 'islandora_object']; 
+
+    foreach ($bundles as $bundle) {
+        $id = $bundle->id();
+        if (!in_array($id, $exceptions)) {
+            $bundle_names[] = $id;
+        }
+    }
+
+    return $bundle_names;
+}
+
+// Create the field 'field_dm_collection' and add it to all content types in use.
+function digitalia_muni_collections_create_field() {
+
+    $field_name = 'field_dm_collection';
+    // Create field storage for 'field_dm_collection'.
+    if (!FieldStorageConfig::loadByName('node', $field_name)) {
+        FieldStorageConfig::create([
+        'field_name' => $field_name,
+        'entity_type' => 'node',
+        'type' => 'list_string',
+        'cardinality' => 1,
+        ])->save();
+    }
+
+    $bundles = digitalia_muni_collections_get_bundles();
+
+    foreach ($bundles as $bundle) {
+        if (!FieldConfig::loadByName('node', $bundle, $field_name)) {
+            FieldConfig::create([
+                'field_name' => $field_name,
+                'entity_type' => 'node',
+                'bundle' => $bundle,
+                'label' => 'Collection',
+                'required' => FALSE,
+            ])->save();
+        }
+    }
+}
+
+// Set the allowed values for the 'field_dm_collection' field.
+function digitalia_muni_collections_set_allowed_values() {
+    $config = \Drupal::config('digitalia_muni_collections.settings');
+    $collections = $config->get('collections') ?? [];
+
+    $field_name = 'field_dm_collection';
+
+    $field_storage = FieldStorageConfig::loadByName('node', $field_name);
+    if ($field_storage) {
+        $field_storage->setSetting('allowed_values', $collections);
+        $field_storage->save();
+    }
+}
+
+function digitalia_muni_collections_populate_field() {
+    $value = 'privateletters';
+    $bundles = digitalia_muni_collections_get_bundles();
+    
+    $nids = \Drupal::entityQuery('node')
+        ->condition('type', $bundles, 'IN')
+        ->accessCheck(FALSE)
+        ->execute();
+
+    $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
+
+    foreach ($nodes as $node) {
+        $node->set('field_dm_collection', $value);
+        $node->save();
+        echo 'Updated ' . $node->getType() . ' ID: ' . $node->id() ."\n";
+    }
+}

@@ -1,0 +1,10 @@
+services:
+    digitalia_muni_collections.collection_event_subscriber:
+        class: Drupal\digitalia_muni_collections\EventSubscriber\CollectionEventSubscriber
+        tags:
+            - { name: event_subscriber }
+
+    digitalia_muni_collections.page_cache_policy:
+        class: Drupal\digitalia_muni_collections\PageCache\CollectionPageCachePolicy
+        tags:
+            - { name: page_cache_request_policy }

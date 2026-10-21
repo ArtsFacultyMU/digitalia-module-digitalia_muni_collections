@@ -1,0 +1,5 @@
+name: 'digitalia_muni_collections'
+type: module
+description: 'Creates and populates field_dm_collection'
+package: custom
+core_version_requirement: ^10 || ^11
